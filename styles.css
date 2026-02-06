@@ -182,13 +182,18 @@ ul {
 }
 
 .section-label {
-    display: block;
-    font-size: 0.85rem;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--text-light);
-    margin-bottom: 2rem;
-    font-weight: 600;
+    margin-bottom: 1.5rem;
+
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    background: transparent;
 }
 
 .section-intro {
@@ -208,9 +213,12 @@ ul {
 }
 
 .content-block .lead {
-    font-size: 1.25rem;
-    font-weight: 500;
+    max-width: 590px;
+    font-size: 2.25rem;
+    font-weight: 700;
     margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 .list-clean li {
@@ -346,6 +354,11 @@ ul {
 }
 
 /* TIMELINE (Cómo trabajamos) */
+.results-inline {
+    margin-top: 3rem;
+    max-width: 900px;
+}
+
 .timeline-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -356,11 +369,11 @@ ul {
 @media (min-width: 768px) {
     .timeline-grid {
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
     /* Simple line connector for desktop */
     .timeline-grid::before {
-        content: "";
+        content: none;
         position: absolute;
         top: 1.5rem;
         left: 0;
@@ -374,18 +387,33 @@ ul {
 .timeline-item {
     position: relative;
     z-index: 1;
-    background-color: var(--bg-subtle); /* Mask line behind */
-    padding-right: 1rem;
+    background-color: var(--bg-subtle);
+    padding: 0 1rem;
 }
 
 .timeline-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
     display: inline-block;
-    background-color: var(--text);
-    color: var(--white);
-    padding: 0.25rem 0.75rem;
-    border-radius: 2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px 2px 10px 2px;
+}
+
+.timeline-item ul li {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+}
+
+.timeline-item ul li:last-child {
+    margin-bottom: 0;
 }
 
 /* FIT / ANTI-FIT */
