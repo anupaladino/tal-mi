@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Golos Text";
+  src: url("assets/fonts/golos-text/GolosText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Golos Text";
+  src: url("assets/fonts/golos-text/GolosText-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Golos Text";
+  src: url("assets/fonts/golos-text/GolosText-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* RESET & BASE */
 :root {
     --bg: #F9F9F7;
@@ -8,12 +32,12 @@
     --primary: #111111;
     --white: #FFFFFF;
     
-    --font-main: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-main: "Golos Text", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     
     --spacing-section: 6rem;
     --spacing-element: 1.5rem;
     --container-width: 1080px;
-    --header-height: 70px;
+    --header-height: 92px;
 }
 
 * {
@@ -123,7 +147,7 @@ ul {
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -134,14 +158,14 @@ ul {
 }
 
 .logo {
-    height: 24px;
+    height: 54px;
     width: auto;
 }
 
 .header-phrase {
     font-size: 0.85rem;
     color: var(--text-light);
-    display: none;
+    display: block;
     border-left: 1px solid var(--border);
     padding-left: 1.5rem;
 }
@@ -168,9 +192,11 @@ ul {
 }
 
 .section-intro {
-    font-size: 1.25rem;
-    max-width: 700px;
-    margin-bottom: 3rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  line-height: 1.2;
 }
 
 .content-block {
