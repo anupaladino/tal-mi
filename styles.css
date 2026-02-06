@@ -236,12 +236,40 @@ ul {
 
 /* HERO */
 .section-hero {
-    padding: 6rem 0 6rem 0;
+    position: relative;
+    overflow: hidden;
+
+    padding: 6rem 0;
     min-height: 80vh;
     display: flex;
     align-items: center;
 }
 
+/* Atmospheric background */
+.section-hero::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(62, 80, 88, 0.35), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(61, 61, 96, 0.28), transparent 60%),
+        radial-gradient(circle at 40% 80%, rgba(239, 237, 228, 0.55), transparent 60%);
+
+    opacity: 0.22;
+    filter: blur(36px);
+    transform: translateZ(0);
+}
+
+/* Conteúdo acima do background */
+.section-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography */
 .section-hero h1 {
     font-size: 2.5rem;
     line-height: 1.1;
@@ -261,6 +289,7 @@ ul {
     margin-bottom: 1.5rem;
 }
 
+/* Actions */
 .hero-actions {
     display: flex;
     flex-direction: column;
@@ -274,15 +303,102 @@ ul {
     color: var(--text-light);
 }
 
+/* Desktop */
 @media (min-width: 768px) {
     .section-hero h1 {
         font-size: 4rem;
     }
+
     .hero-actions {
         flex-direction: row;
         align-items: center;
     }
 }
+
+/* Subtle motion (accessibility-safe) */
+@media (prefers-reduced-motion: no-preference) {
+    .section-hero::before {
+        animation: heroAurora 18s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes heroAurora {
+    0% {
+        transform: translate(-1%, -1%) scale(1);
+    }
+    100% {
+        transform: translate(1%, 1%) scale(1.04);
+    }
+}
+
+/* PROPOSTA — cards */
+.propuesta-kicker {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.propuesta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 900px;
+}
+
+.propuesta-card {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 1rem;
+    align-items: start;
+
+    padding: 1.25rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.propuesta-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: grid;
+    place-items: center;
+}
+
+.propuesta-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--text);
+}
+
+.propuesta-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+}
+
+.propuesta-card p {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+    .propuesta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .propuesta-card {
+        padding: 1.35rem 1.35rem;
+    }
+}
+
 
 /* PROGRAMA */
 .grid-2 {
@@ -414,6 +530,53 @@ ul {
 
 .timeline-item ul li:last-child {
     margin-bottom: 0;
+}
+
+.results-editorial {
+    margin-top: 4rem;
+}
+
+.results-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+
+    margin-bottom: 3.25rem; /* AQUI está o ajuste principal */
+    max-width: 900px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem; /* antes estava grande demais para esse contexto */
+}
+
+.result h4 {
+    margin: 0 0 0.4rem 0; /* antes estava largo */
+    font-size: 1.15rem;  /* ligeiramente menor */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.result p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.55;
+    max-width: 40ch;
+}
+
+@media (min-width: 900px) {
+    .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 4rem;
+        row-gap: 2.25rem;
+    }
+
+    .results-title {
+        font-size: 2rem;
+    }
 }
 
 /* FIT / ANTI-FIT */
